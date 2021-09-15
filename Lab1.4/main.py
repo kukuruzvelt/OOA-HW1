@@ -5,17 +5,17 @@ items = Item(9, 9), Item(8, 8), Item(5, 5), Item(2, 2)
 capacity = 15  # max weight we can put into the knapsack
 
 
-def best_value(number_of_item, weight_limit):
+def best_value(number_of_items, weight_limit):
     if number_of_item == 0:  # no items
         return 0  # zero value
-    elif items[number_of_item - 1].weight > weight_limit:
+    elif items[number_of_items - 1].weight > weight_limit:
         # new item is heavier than the current weight limit
-        return best_value(number_of_item - 1, weight_limit)  # don't include new item
+        return best_value(number_of_items - 1, weight_limit)  # don't include new item
     else:
         return max(  # max of with and without the new item
-            best_value(number_of_item - 1, weight_limit),  # without
-            best_value(number_of_item - 1, weight_limit - items[number_of_item - 1].weight)
-            + items[number_of_item - 1].value)  # with the new item
+            best_value(number_of_items - 1, weight_limit),  # without
+            best_value(number_of_items - 1, weight_limit - items[number_of_items - 1].weight)
+            + items[number_of_items - 1].value)  # with the new item
 
 
 result = []
