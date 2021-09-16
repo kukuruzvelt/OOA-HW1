@@ -6,7 +6,7 @@ capacity = 15  # max weight we can put into the knapsack
 
 
 def best_value(number_of_items, weight_limit):
-    if number_of_item == 0:  # no items
+    if number_of_items == 0:  # no items
         return 0  # zero value
     elif items[number_of_items - 1].weight > weight_limit:
         # new item is heavier than the current weight limit
