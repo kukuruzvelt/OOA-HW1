@@ -3,7 +3,7 @@ import sys
 numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 signs = ['+', '-']
 checkedString = ""
-inputString = sys.argv[1]
+inputString = ""
 
 
 def is_formula(string, sign):  # determines if an expressions is a formula
@@ -29,6 +29,9 @@ def is_formula(string, sign):  # determines if an expressions is a formula
     return [True, checked_string]
 
 
-finalResult = is_formula(inputString, "")
-print("result:", finalResult[0], ",", eval(finalResult[1]))
-
+try:
+    inputString = sys.argv[1]
+    finalResult = is_formula(inputString, "")
+    print("result:", finalResult[0], ",", eval(finalResult[1]))
+except IndexError as ex:
+    print("ERROR: no input")
